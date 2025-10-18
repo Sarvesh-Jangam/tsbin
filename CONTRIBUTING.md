@@ -7,6 +7,17 @@ This document will help you get started and explain our guidelines for contribut
 
 ---
 
+## 🧩 **Before You Begin**
+
+- Make sure Node.js ≥ 18 and Bun ≥ 1.0 are installed
+- Read the README.md first
+- Familiarize yourself with project structure:
+  /frontend → React app
+  /backend → API & server
+  /packages/cli → optional CLI
+
+---
+
 ## **Table of Contents**
 
 1. [Code of Conduct](#code-of-conduct)
@@ -74,9 +85,47 @@ bun run dev
 bun run dev
 ```
 
-5. **Optional CLI setup (soon)**
+5. **CLI Setup and Usage**
 
-- CLI is a separate module; refer to `packages/cli` for instructions.
+The CLI (Command-Line Interface) allows users to interact with tsbin directly from the terminal,for instance,to upload,encrypt or manage files without using the web UI.
+
+**Location**
+
+The CLI source code is located in the `/packages/cli` directory.
+
+**🛠️Setup Steps**
+
+Navigate to the CLI folder:
+
+```bash
+cd packages/cli
+```
+
+Install dependencies:
+
+```bash
+bun install
+```
+
+Run the CLI in development mode:
+
+```bash
+bun run dev
+```
+
+Build for production:
+
+```bash
+bun run build
+```
+
+**Contributing to the CLI**
+
+- Follow the TypeScript conventions as the main project.
+
+- Test your changes locally using sample commands(eg:bun run tsbin <command>).
+
+- Update CLI usage examples in documentation if you add or modify commands.
 
 ---
 
@@ -138,6 +187,24 @@ git push origin feature/my-feature
 
 - tsbin is a collaborative, **open-source project**. Everyone is welcome to contribute.
 - For larger features or breaking changes, open an **issue first** to discuss the design.
+
+---
+
+### ✅ **Pre-PR Checklist**
+
+- [ ] Tested changes locally
+- [ ] Updated documentation if needed
+- [ ] Followed linting/formatting rules
+- [ ] Linked the related issue
+
+---
+
+## 📚 **Resources for Beginners**
+
+- [GitHub Flow Guide](https://guides.github.com/introduction/flow/)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+- [Open Source Guide](https://opensource.guide/how-to-contribute/)
 
 ---
 

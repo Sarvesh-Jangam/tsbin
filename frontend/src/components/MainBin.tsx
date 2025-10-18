@@ -231,7 +231,7 @@ export default function MainBin({}: MainBinProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div /*className="min-h-screen bg-white"*/>
       <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-light text-gray-800 mb-4">
@@ -630,9 +630,9 @@ export default function MainBin({}: MainBinProps) {
         </div>
       </div>
 
-      <footer className="text-center py-8 border-t border-gray-100">
+      {/*<footer className="text-center py-8 border-t border-gray-100">
         <p className="text-xs text-gray-400">powered by tsbin</p>
-      </footer>
+      </footer>*/}
     </div>
   );
 }

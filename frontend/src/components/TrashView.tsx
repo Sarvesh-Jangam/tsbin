@@ -275,7 +275,7 @@ export default function TrashView() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div /*className="min-h-screen bg-white"*/  >
       <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-8">
           <Link
@@ -416,10 +416,10 @@ export default function TrashView() {
           </div>
         )}
 
-        {/* Footer */}
-        <footer className="text-center py-8 mt-16">
+        
+        {/*<footer className="text-center py-8 mt-16">
           <p className="text-xs text-gray-400">powered by tsbin</p>
-        </footer>
+        </footer>*/}
       </div>
     </div>
   );

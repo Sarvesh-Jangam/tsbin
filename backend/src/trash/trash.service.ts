@@ -4,6 +4,7 @@ import { UpdateTrashDto } from './dto/update-trash.dto';
 import { AppwriteService } from 'src/appwrite/appwrite.service';
 import { TelegramService } from 'src/telegram/telegram.service';
 import { generateId } from 'src/lib/utils';
+import { ErrorResponse } from 'src/lib/exception-filter';
 
 @Injectable()
 export class TrashService {
@@ -69,7 +70,7 @@ export class TrashService {
       views: 0,
       expires_at: expireAt || null,
       size: encryptedContent.length,
-      message_ids: '', // Not used for text
+      message_ids: [], // Not used for text
       chat_id: '', // Not used for text
     };
 
@@ -82,7 +83,11 @@ export class TrashService {
       });
       return rec.slug;
     } catch (error) {
-      throw new HttpException('Failed to create text trash', 500);
+      console.log(error);
+      throw new ErrorResponse(
+        `BAAS: Failed to create text trash - ${error.message}`,
+        500,
+      );
     }
   }
 
@@ -135,8 +140,6 @@ export class TrashService {
         });
       }
 
-      console.log('All files uploaded to Telegram:', fileMetadata);
-
       // Store file metadata in database
       const data = {
         type: 'file',
@@ -166,13 +169,18 @@ export class TrashService {
 
       return rec.slug;
     } catch (error) {
-      console.error('File upload error:', error);
-      throw new HttpException('Failed to upload files', 500);
+      throw new ErrorResponse(
+        `BAAS: Failed to create file trash - ${error.message}`,
+        500,
+      );
     }
   }
 
   findAll() {
-    return `This action returns all trash`;
+    return {
+      message: `Not implemented yet`,
+      data: [],
+    };
   }
 
   async findOne(slug: string) {
